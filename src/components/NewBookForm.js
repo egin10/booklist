@@ -3,7 +3,11 @@ import { BookContext } from '../contexts/BookContext';
 
 const NewBookForm = () => {
     // disini kita menggunakan fungsi addBook untuk menambhakan data baru pada state books di BookContext
-    const {addBook} = useContext(BookContext);
+    // const {addBook} = useContext(BookContext);
+
+    // karena kita sudah membuat sebuah reducer maka yg kita ambil adalah dispatch, dimana dispatch adalah kumpulan fungsi
+    // yg telah kita buat barusan untuk melakukan manipulasi state pada Context.
+    const {dispatch} = useContext(BookContext);
 
     // karena kita membutuhkan state untuk mendapatkan title dan author pada form, maka kita menggunakan useState untuk membuat
     // state pada component berikut ini.
@@ -15,7 +19,10 @@ const NewBookForm = () => {
         e.preventDefault();
         
         // disini kita mengirimkan data title dan author baru untuk ditambahkan pada state books di BookContext
-        addBook(title, author);
+        // addBook(title, author);
+
+        // karena tadi kita telah membuat fungsi untuk menambah data di reducer, maka kita dapat menambah data dengan cara berikut
+        dispatch({ type: "ADD_BOOK", book: {title,author} })
 
         // setelah melakukan penambahan data baru pada state di BookContext, kita melakukan reset value title dan author menjadi string kosong kembali
         // agar form menjadi kosong kembali.

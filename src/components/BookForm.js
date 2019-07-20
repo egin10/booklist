@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import { BookContext } from '../contexts/BookContext';
 
-const NewBookForm = () => {
+const BookForm = () => {
     // disini kita menggunakan fungsi addBook untuk menambhakan data baru pada state books di BookContext
     // const {addBook} = useContext(BookContext);
 
@@ -41,4 +41,4 @@ const NewBookForm = () => {
     );
 }
  
-export default NewBookForm;
+export default BookForm;

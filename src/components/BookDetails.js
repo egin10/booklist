@@ -11,11 +11,13 @@ const BookDetails = ({book}) => {
 
     // karena fungsi removeBook telah kita deklarasikan pada dispatch di reducer, maka cukup dispatch yg kita gunakan disini
     const {dispatch} = useContext(BookContext);
+
     return (
         // disini kita menggunakan removeBook untuk menghapus data pada state di Context ketika list di klik.
-        <li onClick={() => dispatch({type: "REMOVE_BOOK", id: book.id})}>
+        <li>
             <div className="title">{book.title}</div>
             <div className="author">{book.author}</div>
+            <button className="btn-remove" onClick={() => dispatch({type: "REMOVE_BOOK", id: book.id})}>X</button>
         </li>
     );
 }
